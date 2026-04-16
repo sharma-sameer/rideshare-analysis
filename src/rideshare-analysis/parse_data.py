@@ -55,7 +55,7 @@ settings = settings = dict(
 
 
 @remote(**settings)
-def parse_parquet(bucket, prefix):
+def _parse_parquet(bucket, prefix):
     s3 = boto3.client("s3")
 
     response = s3.list_objects_v2(Bucket=bucket, Prefix=prefix)
@@ -148,7 +148,7 @@ for data_directory in data_directories:
     logger.info(
         f"Getting list of all the parquet files in the directory s3://{bucket}/{data_directory}"
     )
-    result = parse_parquet(bucket, data_directory)
+    result = _parse_parquet(bucket, data_directory)
 
     if result:
         config_path = Path.cwd() / "config" / "table_config.yaml"

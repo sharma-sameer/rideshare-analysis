@@ -53,7 +53,7 @@ def save_to_snowflake(table_df: pl.DataFrame) -> str:
             insert_time = dt.now(datetime.timezone.utc).strftime(
                 "%Y-%m-%d %H:%M:%S"
             )
-            create_update_table(table_df, conn)
+            _create_update_table(table_df, conn)
             logger.info(
                 "Data inserted successfully. Now need to update the Metadata table to reflect the refresh time."
             )
@@ -89,7 +89,7 @@ def save_to_snowflake(table_df: pl.DataFrame) -> str:
             insert_time = dt.now(datetime.timezone.utc).strftime(
                 "%Y-%m-%d %H:%M:%S"
             )
-            create_update_table(table_df, conn, version_change=True)
+            _create_update_table(table_df, conn, version_change=True)
             logger.info(
                 "Data inserted successfully. Now need to update the Metadata table to reflect the refresh time."
             )
@@ -115,7 +115,7 @@ def save_to_snowflake(table_df: pl.DataFrame) -> str:
         insert_time = dt.now(datetime.timezone.utc).strftime(
             "%Y-%m-%d %H:%M:%S"
         )
-        create_update_table(table_df, conn)
+        _create_update_table(table_df, conn)
         logger.info(
             "Data inserted successfully. Now need to update the Metadata table to reflect the refresh time."
         )
@@ -136,7 +136,7 @@ def save_to_snowflake(table_df: pl.DataFrame) -> str:
     return False
 
 
-def create_update_table(
+def _create_update_table(
     table_df: pl.DataFrame,
     conn: SnowflakeConnection,
     version_change: bool = False,
