@@ -392,7 +392,7 @@ def _get_flags(df):
             "rideshare_flag_ever1cnt": rideshare_flag_ever1cnt,
             "rideshare_flag_ever2cnt": rideshare_flag_ever2cnt,
             "rideshare_flag_ever3cnt": rideshare_flag_ever3cnt,
-            # "rideshare_flag_ever4cnt": rideshare_flag_ever4cnt,
+            "rideshare_flag_ever4cnt": rideshare_flag_ever4cnt,
             "rideshare_flag_ever5cnt": rideshare_flag_ever5cnt,
             "rideshare_flag_ever6cnt": rideshare_flag_ever6cnt,
             "rideshare_flag_ever7cnt": rideshare_flag_ever7cnt,
